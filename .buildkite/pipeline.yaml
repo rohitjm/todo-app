@@ -1,4 +1,7 @@
 steps:
-  - plugins:
-      - seek-oss/docker-ecr-publish#v2.3.0:
-          ecr-name: my-repo
+  - label: Build and Push App Container
+    command: ./scripts/build_container
+    plugins:
+      - docker-login#v2.1.0:
+          username: rohitjm
+          password-env: MY_DOCKER_LOGIN_PASSWORD
