@@ -1,0 +1,13 @@
+steps:
+  - label: Build and Push App Container
+    command: ./scripts/build_container
+    plugins:
+      - docker-login#v2.1.0:
+          username: rohitjm
+          password-env: MY_DOCKER_LOGIN_PASSWORD
+  - label: render manifests
+    command: test
+    plugins:
+      - rohitjm/render-manifests#v0.0.1:
+
+
